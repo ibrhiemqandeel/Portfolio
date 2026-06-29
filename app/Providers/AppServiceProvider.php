@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,8 +19,14 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        //
+
+
+
+public function boot(): void
+{
+    // إجبار تشغيل الـ HTTPS لو كان الموقع مرفوعاً على سيرفر حقيقي
+    if (config('app.env') === 'production' || env('APP_ENV') === 'production' || env('APP_URL') !== 'http://localhost') {
+        URL::forceScheme('https');
     }
+}
 }
