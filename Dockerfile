@@ -21,13 +21,12 @@ COPY . .
 # 5. تثبيت مكتبات Composer للـ Production
 RUN composer install --no-dev --optimize-autoloader
 
-# 6. إعطاء الصلاحيات الكاملة والمطلقة لمجلدات التخزين والكاش أثناء البناء
-RUN chmod -R 777 storage bootstrap/cache
+# 6. تهيئة مجلد قاعدة البيانات ومنح الصلاحيات أثناء البناء لضمان الاستقرار
+RUN mkdir -p /app/database && \
+    touch /app/database/database.sqlite && \
+    chmod -R 777 /app/database storage bootstrap/cache
 
 EXPOSE 10000
 
-CMD mkdir -p /app/database && \
-    touch /app/database/database.sqlite && \
-    chmod -R 777 /app/database storage bootstrap/cache && \
-    php artisan migrate --force && \
-    php -S 0.0.0.0:10000 -t public
+# 7. أمر التشغيل المباشر والسريع بدون أي تعقيدات تمنع الـ Deploy
+CMD php artisan migrate --force && php -S 0.0.0.0:10000 -t public
