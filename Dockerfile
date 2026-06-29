@@ -15,7 +15,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # 3. تحديد مجلد العمل الرئيسي داخل الحاوية
 WORKDIR /app
 
-# 4. نسخ ملفات المشروع بالكامل (مرة واحدة وبشكل صحيح)
+# 4. نسخ ملفات المشروع بالكامل
 COPY . .
 
 # 5. تثبيت مكتبات Composer للـ Production
@@ -26,13 +26,13 @@ RUN chmod -R 777 storage bootstrap/cache
 
 EXPOSE 10000
 
-# 7. أمر التشغيل: نضمن وجود المجلد والملف وصلاحياتهم 777 المطلقة قبل إقلاع السيرفر وتصفير الكاش
-CMD php artisan config:clear && \
-    php artisan route:clear && \
-    php artisan view:clear && \
-    mkdir -p /app/database && \
+# 7. أمر التشغيل الصارم: فتح المنافذ لـ 0.0.0.0 وتخطي الـ Reverse Proxy لـ Render
+CMD mkdir -p /app/database && \
     touch /app/database/database.sqlite && \
     chmod -R 777 /app/database storage bootstrap/cache && \
+    php artisan config:clear && \
+    php artisan route:clear && \
+    php artisan view:clear && \
     php artisan migrate --force && \
     php artisan optimize && \
-    php artisan serve --host=0.0.0.0 --port=10000
+    php -S 0.0.0.0:10000 -t public
