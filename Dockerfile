@@ -21,15 +21,18 @@ COPY . .
 # 5. تثبيت مكتبات Composer للـ Production
 RUN composer install --no-dev --optimize-autoloader
 
-# 6. إعطاء الصلاحيات الكاملة والمطلقة للمجلدات الحيوية لمنع الـ 500
+# 6. إعطاء الصلاحيات الكاملة والمطلقة لمجلدات التخزين والكاش أثناء البناء
 RUN chmod -R 777 storage bootstrap/cache
 
 EXPOSE 10000
 
-# 7. أمر التشغيل المؤتمت: إنشاء المجلد وقاعدة البيانات، منحها صلاحيات 777، ثم تشغيل الميجريشن والإقلاع
-CMD mkdir -p database && \
-    touch database/database.sqlite && \
-    chmod -R 777 database storage bootstrap/cache && \
+# 7. أمر التشغيل: نضمن وجود المجلد والملف وصلاحياتهم 777 المطلقة قبل إقلاع السيرفر وتصفير الكاش
+CMD php artisan config:clear && \
+    php artisan route:clear && \
+    php artisan view:clear && \
+    mkdir -p /app/database && \
+    touch /app/database/database.sqlite && \
+    chmod -R 777 /app/database storage bootstrap/cache && \
     php artisan migrate --force && \
     php artisan optimize && \
     php artisan serve --host=0.0.0.0 --port=10000
