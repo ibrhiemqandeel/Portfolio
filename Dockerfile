@@ -29,9 +29,5 @@ EXPOSE 10000
 CMD mkdir -p /app/database && \
     touch /app/database/database.sqlite && \
     chmod -R 777 /app/database storage bootstrap/cache && \
-    php artisan config:clear && \
-    php artisan route:clear && \
-    php artisan view:clear && \
-    php artisan cache:clear && \
     php artisan migrate --force && \
     php -S 0.0.0.0:10000 -t public
