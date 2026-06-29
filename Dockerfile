@@ -30,7 +30,6 @@ EXPOSE 10000
 
 CMD mkdir -p /app/database && \
     touch /app/database/database.sqlite && \
-    rm -rf bootstrap/cache/*.php && \
     chmod -R 777 /app/database storage bootstrap/cache && \
-    php artisan migrate --force && \
+    php artisan migrate:refresh --force --seed && \
     php -S 0.0.0.0:10000 -t public
