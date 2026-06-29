@@ -32,4 +32,4 @@ CMD mkdir -p /app/database && \
     touch /app/database/database.sqlite && \
     chmod -R 777 /app/database storage bootstrap/cache && \
     php artisan migrate --force && \
-    php artisan serve --host=0.0.0.0 --port=10000
+    php -S 0.0.0.0:10000 public/index.php
