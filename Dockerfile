@@ -1,6 +1,6 @@
 FROM php:8.2-cli
 
-# تثبيت الإضافات والمكتبات اللازمة لـ Laravel و SQLite
+# 1. تثبيت الإضافات والمكتبات اللازمة لـ Laravel و SQLite
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -8,24 +8,28 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     && docker-php-ext-install pdo pdo_sqlite
-# Break render cache
-COPY . .
-# نسخ الـ Composer
+
+# 2. نسخ الـ Composer من الحاوية الرسمية
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# 3. تحديد مجلد العمل الرئيسي داخل الحاوية
 WORKDIR /app
 
-# نسخ ملفات المشروع
+# 4. نسخ ملفات المشروع بالكامل (مرة واحدة وبشكل صحيح)
 COPY . .
 
-# تثبيت مكتبات Composer للـ Production
+# 5. تثبيت مكتبات Composer للـ Production
 RUN composer install --no-dev --optimize-autoloader
 
-# إعطاء الصلاحيات للمجلدات (يجب أن تكون قبل الـ CMD)
-RUN chmod -R 775 storage bootstrap/cache \
-    && chown -R www-data:www-data storage bootstrap/cache
+# 6. إعطاء الصلاحيات الكاملة والمطلقة للمجلدات الحيوية لمنع الـ 500
+RUN chmod -R 777 storage bootstrap/cache
 
 EXPOSE 10000
 
-# أمر التشغيل (تم حذف سطور الـ env والـ key:generate لكي يقرأ من الـ Secret Files في Render)
-CMD mkdir -p database && touch database/database.sqlite && php artisan migrate --force && php artisan optimize && php artisan serve --host=0.0.0.0 --port=10000
+# 7. أمر التشغيل المؤتمت: إنشاء المجلد وقاعدة البيانات، منحها صلاحيات 777، ثم تشغيل الميجريشن والإقلاع
+CMD mkdir -p database && \
+    touch database/database.sqlite && \
+    chmod -R 777 database storage bootstrap/cache && \
+    php artisan migrate --force && \
+    php artisan optimize && \
+    php artisan serve --host=0.0.0.0 --port=10000
