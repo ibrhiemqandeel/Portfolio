@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     && docker-php-ext-install pdo pdo_sqlite
-
+# Break render cache
+COPY . .
 # نسخ الـ Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
