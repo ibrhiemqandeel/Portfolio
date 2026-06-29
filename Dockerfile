@@ -28,5 +28,9 @@ RUN mkdir -p /app/database && \
 
 EXPOSE 10000
 
-# 7. أمر التشغيل المباشر والسريع بدون أي تعقيدات تمنع الـ Deploy
-CMD php artisan migrate --force && php -S 0.0.0.0:10000 -t public
+CMD mkdir -p /app/database && \
+    touch /app/database/database.sqlite && \
+    rm -rf bootstrap/cache/*.php && \
+    chmod -R 777 /app/database storage bootstrap/cache && \
+    php artisan migrate --force && \
+    php -S 0.0.0.0:10000 -t public
