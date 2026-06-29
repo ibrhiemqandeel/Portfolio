@@ -1,20 +1,30 @@
 FROM php:8.2-cli
 
-RUN apt-get update && apt-get install -y git curl zip unzip
+# تثبيت الإضافات والمكتبات اللازمة لـ Laravel و SQLite
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libsqlite3-dev \
+    zip \
+    unzip \
+    && docker-php-ext-install pdo pdo_sqlite
 
+# نسخ الـ Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 
+# نسخ ملفات المشروع
 COPY . .
 
+# تثبيت مكتبات Composer للـ Production
 RUN composer install --no-dev --optimize-autoloader
 
-RUN cp .env.example .env || true
-RUN php artisan key:generate || true
+# إعطاء الصلاحيات للمجلدات (يجب أن تكون قبل الـ CMD)
+RUN chmod -R 775 storage bootstrap/cache \
+    && chown -R www-data:www-data storage bootstrap/cache
 
 EXPOSE 10000
 
-CMD php artisan serve --host=0.0.0.0 --port=10000
-
-RUN chmod -R 777 storage bootstrap/cache
+# أمر التشغيل (تم حذف سطور الـ env والـ key:generate لكي يقرأ من الـ Secret Files في Render)
+CMD php artisan optimize && php artisan serve --host=0.0.0.0 --port=10000
