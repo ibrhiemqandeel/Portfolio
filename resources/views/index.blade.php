@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ibrahime Qndeel — Full Stack Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="{{ asset('images/logo_Q.png') }}">
+<link rel="icon" type="image/png" href="{{ asset('images/logo_Q.png') }}?v=1">
 
 <style>
     body::selection {
