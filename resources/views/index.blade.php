@@ -6,7 +6,7 @@
     <title>Ibrahim Qandeel | Full Stack Web Developer Portfolio</title>
 
     <!-- Google Search Console Verification Tag -->
-    <meta name="google-site-verification" content="c65f855848deb182" />
+    <meta name="google-site-verification" content="s9vsrOtfxEX5f15Do4jqc5EMjOsLfNI88ZpKcM-qqHc" />
 
     <meta name="description"
         content="Official portfolio of Ibrahim Qandeel, Full Stack Web Developer specializing in Laravel, PHP, JavaScript, MySQL, HTML, CSS, Bootstrap, and modern web applications.">
