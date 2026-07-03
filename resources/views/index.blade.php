@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ibrahim Qandeel | Full Stack Web Developer Portfolio</title>
 
+    <!-- Google Search Console Verification Tag -->
+    <meta name="google-site-verification" content="c65f855848deb182" />
+
     <meta name="description"
         content="Official portfolio of Ibrahim Qandeel, Full Stack Web Developer specializing in Laravel, PHP, JavaScript, MySQL, HTML, CSS, Bootstrap, and modern web applications.">
     <meta name="keywords"
@@ -13,6 +16,7 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ibrhime-qndeel.is-pro.dev/">
 
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ibrahim Qandeel | Full Stack Web Developer">
     <meta property="og:description"
@@ -20,14 +24,17 @@
     <meta property="og:url" content="https://ibrhime-qndeel.is-pro.dev/">
     <meta property="og:image" content="https://ibrhime-qndeel.is-pro.dev/images/logo_Q.png">
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ibrahim Qandeel | Full Stack Web Developer">
     <meta name="twitter:description"
         content="Official portfolio of Ibrahim Qandeel. Full Stack Web Developer specializing in Laravel and modern web technologies.">
     <meta name="twitter:image" content="https://ibrhime-qndeel.is-pro.dev/images/logo_Q.png">
 
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/logo_Q.png') }}">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 <style>
