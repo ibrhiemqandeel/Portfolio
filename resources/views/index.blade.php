@@ -2,10 +2,33 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ibrahime Qndeel — Full Stack Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="{{ asset('images/logo_Q.png') }}?v=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahim Qandeel | Full Stack Web Developer Portfolio</title>
+
+    <meta name="description"
+        content="Official portfolio of Ibrahim Qandeel, Full Stack Web Developer specializing in Laravel, PHP, JavaScript, MySQL, HTML, CSS, Bootstrap, and modern web applications.">
+    <meta name="keywords"
+        content="Ibrahim Qandeel, Full Stack Developer, Laravel Developer, PHP Developer, Web Developer, Portfolio, Palestine, Gaza, JavaScript, MySQL, Bootstrap">
+    <meta name="author" content="Ibrahim Qandeel">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ibrhime-qndeel.is-pro.dev/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ibrahim Qandeel | Full Stack Web Developer">
+    <meta property="og:description"
+        content="Explore the official portfolio of Ibrahim Qandeel. View my projects, experience, and web development skills.">
+    <meta property="og:url" content="https://ibrhime-qndeel.is-pro.dev/">
+    <meta property="og:image" content="https://ibrhime-qndeel.is-pro.dev/images/logo_Q.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ibrahim Qandeel | Full Stack Web Developer">
+    <meta name="twitter:description"
+        content="Official portfolio of Ibrahim Qandeel. Full Stack Web Developer specializing in Laravel and modern web technologies.">
+    <meta name="twitter:image" content="https://ibrhime-qndeel.is-pro.dev/images/logo_Q.png">
+
+    <link rel="icon" type="image/png" href="{{ asset('images/logo_Q.png') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 <style>
     body::selection {
@@ -43,6 +66,8 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #000000;
 }
+
+a{color:inherit;text-decoration:none}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#060608;
@@ -460,11 +485,12 @@ footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify
         <span class="project-num">01</span>
         <span class="project-arrow">↗</span>
       </div>
+      <a href="{{ url('https://lap-tools-web.onrender.com') }}" target="_blank" class="project-link">
       <div class="project-title">Lap Tools Web</div>
       <p class="project-desc">An integrated online platform featuring over 999 websites across various fields, designed to facilitate user access to the best websites, tools, and services they need in their technical, creative, and educational areas.
 
 The platform provides a streamlined and efficient experience, helping users discover new websites, develop their skills, and accomplish tasks easily from a single location.</p>
-      <div class="project-stack">
+      <div class="project-stack"></a>
         <span class="stack-tag">Laravel</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span><span class="stack-tag">JavaScript</span>
       </div>
     </div>
@@ -575,7 +601,6 @@ POST is a trendy e-commerce platform that brings together the latest fashion tre
   <div class="footer-badge">🇵🇸 Full Stack Developer</div>
 </footer>
 
-
 <script>
 const obs = new IntersectionObserver((entries) => {
 entries.forEach(e => {
@@ -595,4 +620,4 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 </script>
 </body>
-</html>
+
