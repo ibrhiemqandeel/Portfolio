@@ -506,6 +506,7 @@ The platform provides a streamlined and efficient experience, helping users disc
         <span class="project-num">02</span>
         <span class="project-arrow">↗</span>
       </div>
+      <a href="{{ url('https://post-z44n.onrender.com') }}" target="_blank" class="project-link">
       <div class="project-title">POST</div>
       <p class="project-desc">POST | Fast Fashion, Flawless Beauty
 POST is a trendy e-commerce platform that brings together the latest fashion trends and premium makeup essentials in one place. We simplify your shopping experience to deliver complete, head-turning looks and effortless confidence in just a few clicks.
@@ -513,7 +514,7 @@ POST is a trendy e-commerce platform that brings together the latest fashion tre
 "Shop the style. Post the glow.".</p>
       <div class="project-stack">
         <span class="stack-tag">PHP</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span><span class="stack-tag">CSS3</span>
-      </div>
+      </div></a>
     </div>
     <div class="project-card reveal" style="transition-delay:0.2s">
       <div class="project-header">
