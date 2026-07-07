@@ -521,8 +521,8 @@ POST is a trendy e-commerce platform that brings together the latest fashion tre
         <span class="project-num">03</span>
         <span class="project-arrow">↗</span>
       </div>
-      <div class="project-title">Restaurant Booking App</div>
-      <p class="project-desc">Interactive reservation system with real-time table availability, menu browsing, and an admin panel for restaurant owners to manage bookings, staff, and customer data.</p>
+      <div class="project-title">Corner90</div>
+      <p class="project-desc">Corner90 is a modern sports platform that delivers the latest football news, live match updates, detailed statistics, league standings, player profiles, match schedules, and in-depth analysis. The platform provides sports fans with accurate, real-time information in a clean and responsive interface, making it easy to follow teams, players, and competitions from around the world.</p>
       <div class="project-stack">
         <span class="stack-tag">Laravel</span><span class="stack-tag">MySQL</span><span class="stack-tag">JavaScript</span><span class="stack-tag">Bootstrap</span>
       </div>
