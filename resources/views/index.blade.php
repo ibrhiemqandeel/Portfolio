@@ -32,7 +32,7 @@
     <meta name="twitter:image" content="https://ibrhime-qndeel.is-pro.dev/images/logo_Q.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/logo_Q.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('/images/logo_Q.png') }}">
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
